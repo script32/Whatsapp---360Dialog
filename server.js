@@ -9,9 +9,9 @@ app.post("/webhook", async function (req, res) {
   console.log("Esto ha llegado: ", JSON.stringify(req.body, null, " "));
   if (!req.body.statuses) {
     let phone = req.body.messages[0].from;
-    let receivedMessage = req.body.messages[0].text.body;
-    let payload = await dialogflow.sendToDialogFlow(receivedMessage, "aaa");
-    let responses = payload.fulfillmentMessages;
+    //let receivedMessage = req.body.messages[0].text.body;
+   // let payload = await dialogflow.sendToDialogFlow(receivedMessage, "aaa");
+    let responses = "Respuesta y prueba de whats";
     for (const response of responses) {
       await sendMessageToWhatsapp(phone, response.text.text[0]);
     }
@@ -33,7 +33,7 @@ async function sendMessageToWhatsapp(phone, response) {
       },
       {
         headers: {
-          "D360-API-KEY": "fGeiRo_sandbox",
+              "D360-API-KEY": "THyyTktIo0pX1Nwq2uqGPQMqAK",
         },
       }
     );

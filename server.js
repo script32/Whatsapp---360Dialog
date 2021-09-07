@@ -37,7 +37,7 @@ app.post("/sendtest", async function (req, res) {
 async function sendMessageToWhatsapp(phone, response) {
   try {
     let payload = await axios.post(
-      "https://waba-sandbox.360dialog.io/v1/messages",
+      "https://waba.360dialog.io/v1/messages",
       {
         recipient_type: "individual",
         to: phone,

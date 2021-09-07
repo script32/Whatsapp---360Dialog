@@ -26,6 +26,14 @@ app.post("/webhook", async function (req, res) {
   res.status(200);
 });
 
+app.post("/sendtest", async function (req, res) {
+    console.log("Envio: ", JSON.stringify(req.body, null, " "));
+
+    await sendMessageToWhatsapp(req.body.phone, req.body.text);
+           
+    res.status(200);
+});
+
 async function sendMessageToWhatsapp(phone, response) {
   try {
     let payload = await axios.post(

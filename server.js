@@ -5,6 +5,13 @@ const dialogflow = require("./dialogflow");
 
 app.use(express.json());
 
+
+app.get("/status", function (req, res) {
+
+    res.send("Funcionando");
+
+});
+
 app.post("/webhook", async function (req, res) {
   console.log("Esto ha llegado: ", JSON.stringify(req.body, null, " "));
   if (!req.body.statuses) {
